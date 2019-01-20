@@ -1,5 +1,31 @@
 # Displaying Has Many Through Rails Lab
+Doctor
+has_many :appointments
+has_many :patients through: :appointments
 
+t.string :name
+t.string :department
+
+
+Patient
+has_many :appointments
+has_many :doctors, through: :appointments
+
+t.string :name
+t.integer :age
+
+
+Appointment
+belongs_to :doctor
+belongs_to :patient
+
+t.datetime :appointment_datetime
+t.integer :doctor_id
+t.integer :patient_id
+
+ "January 12, 2016 at 3:00"
+
+rails g resource --no-test-framework
 ## Objectives
 
 1. Construct a bi-directional has many through.
